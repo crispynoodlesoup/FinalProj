@@ -12,6 +12,7 @@ public class GameScreen implements Screen{
     MyGame game;
     SpriteBatch batch;
     Assets assets;
+    Board board;
 
     public GameScreen(MyGame game) {
         //save the game instance
@@ -21,10 +22,13 @@ public class GameScreen implements Screen{
         camera = new OrthographicCamera();
         camera.setToOrtho(true, 1280, 720);
 
-        //
+        //sprites and assets
         assets = new Assets();
         assets.loadAtlas("pack/imgs.atlas");
         batch = new SpriteBatch();
+
+        //setup board
+        board = new Board();
 
     }
 
@@ -35,9 +39,10 @@ public class GameScreen implements Screen{
 
         Sprite sprite = assets.loadSprite("Snakey");
         sprite.setOrigin(0,0);
-        sprite.scale(2);
+        sprite.scale(3);
 
         batch.begin();
+            board.drawTiles(batch);
             sprite.draw(batch);
         batch.end();
         camera.update();
