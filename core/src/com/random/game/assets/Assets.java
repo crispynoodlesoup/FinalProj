@@ -1,4 +1,4 @@
-package com.random.game;
+package com.random.game.assets;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.Sprite;

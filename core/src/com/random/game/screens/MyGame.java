@@ -1,6 +1,7 @@
-package com.random.game;
+package com.random.game.screens;
 
 import com.badlogic.gdx.Game;
+import com.random.game.screens.GameScreen;
 
 public class MyGame extends Game {
     GameScreen screen;
