@@ -1,0 +1,54 @@
+
+imgs.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Oil
+  rotate: false
+  xy: 1, 11
+  size: 56, 48
+  orig: 56, 48
+  offset: 0, 0
+  index: -1
+Sand
+  rotate: false
+  xy: 59, 11
+  size: 56, 48
+  orig: 56, 48
+  offset: 0, 0
+  index: -1
+button
+  rotate: false
+  xy: 1, 1
+  size: 48, 8
+  orig: 48, 8
+  offset: 0, 0
+  index: -1
+button_click
+  rotate: false
+  xy: 117, 51
+  size: 48, 8
+  orig: 48, 8
+  offset: 0, 0
+  index: -1
+button_hover
+  rotate: false
+  xy: 51, 1
+  size: 48, 8
+  orig: 48, 8
+  offset: 0, 0
+  index: -1
+button_pressed
+  rotate: false
+  xy: 117, 41
+  size: 48, 8
+  orig: 48, 8
+  offset: 0, 0
+  index: -1
+Snakey
+  rotate: false
+  xy: 167, 46
+  size: 41, 13
+  orig: 41, 13
+  offset: 0, 0
+  index: -1
