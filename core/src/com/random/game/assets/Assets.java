@@ -6,11 +6,11 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 public class Assets {
     TextureAtlas atlas;
-    AssetManager assets;
+    public AssetManager assets;
+    public AssetManager manager;
 
-    public Assets() {
-        assets = new AssetManager();
-    }
+
+    public Assets() { assets = new AssetManager(); }
 
     public void loadAtlas(String atlasFileName) {
         assets.load(atlasFileName, TextureAtlas.class);
