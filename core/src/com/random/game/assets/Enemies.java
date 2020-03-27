@@ -27,8 +27,8 @@ public class Enemies {
     private TextureRegion currentFrame;
     private Animation [] animations;
 
-    public Enemies(String type, int numberOf, TextureRegion textureRegionEnemies){
-        if(type.equals("snake")){
+    public Enemies(String whatType, int numberOf, TextureRegion textureRegionEnemies){
+        if(whatType.equals("snake")){
             //index through animations for snake idle
             TextureRegion[][] tmp = textureRegionEnemies.split(100, 100); //Change once find format of pack
             idleFrames = new TextureRegion[4];
@@ -63,7 +63,7 @@ public class Enemies {
             // Initial currentAnimation
             setCurrentAnimation(IDLE);
 
-        }else if(type.equals("lizard")){
+        }else if(whatType.equals("lizard")){
             //index through animations for lizard idle
             TextureRegion[][] tmp = textureRegionEnemies.split(100, 100); //Change once find format of pack
             idleFrames = new TextureRegion[4];
@@ -98,7 +98,7 @@ public class Enemies {
             // Initial currentAnimation
             setCurrentAnimation(IDLE);
 
-        }else if(type.equals("worm")){
+        }else if(whatType.equals("worm")){
             //index through animations for worm idle
             TextureRegion[][] tmp = textureRegionEnemies.split(100, 100); //Change once find format of pack
             idleFrames = new TextureRegion[4];
