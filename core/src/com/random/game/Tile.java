@@ -3,8 +3,12 @@ package com.random.game;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import java.awt.Point;
+import java.awt.geom.Point2D;
+
 enum TileType {
 
+    //three types of tiles, INACTIVE,
     INACTIVE(0, false),
     SAND(1, true){
         @Override
@@ -38,10 +42,6 @@ enum TileType {
         return active;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public Sprite sprite() {
         return new Sprite();
     }
@@ -49,13 +49,51 @@ enum TileType {
 
 public class Tile {
 
-    public static float width;
-    public static float height;
+    public static final float WIDTH = 56;
+    public static final float HEIGHT = 48;
+    public static float currWidth;
+    public static float currHeight;
 
     TileType type;
     Sprite sprite;
+    Point2D point;
 
-    public Tile(int id, float scale, float x, float y) {
+    public Tile(int id, float x, float y) {
+        currWidth = WIDTH;
+        currHeight = HEIGHT;
+
+        switch (id) {
+            case 1:
+                type = TileType.SAND;
+                break;
+            case 2:
+                type = TileType.OIL;
+                break;
+            default:
+                type = TileType.INACTIVE;
+        }
+        point = new Point2D.Float(x, y);
+        sprite = type.sprite();
+        sprite.setPosition(x, y);
+    }
+
+    public void scaleBy(float scale) {
+        sprite.scale(scale);
+        currWidth = WIDTH + WIDTH*scale;
+        currHeight = HEIGHT + HEIGHT*scale;
+    }
+
+    public void setPos(float x, float y) {
+        sprite.setPosition(x, y);
+        point.setLocation(x, y);
+    }
+
+    public void movePos(float x, float y) {
+        point.setLocation(point.getX() + x, point.getY() + y);
+        sprite.setPosition((float)point.getX(), (float)point.getY());
+    }
+
+    public void setType(int id) {
         switch (id) {
             case 0:
                 type = TileType.INACTIVE;
@@ -68,20 +106,9 @@ public class Tile {
                 break;
         }
         sprite = type.sprite();
-        sprite.setOrigin(x, y);
-        sprite.scale(scale);
-        sprite.setPosition(x, y);
-
-        width = 56;
-        width *= scale;
-        height = 48;
-        height *= scale;
+        sprite.setPosition((float) point.getX(), (float) point.getY());
+        sprite.scale((currWidth-WIDTH)/WIDTH);
     }
-
-    public void setPos(float x, float y) {
-        sprite.setPosition(x, y);
-    }
-
 
     public void draw(SpriteBatch batch) {
         if(type.getId() != 0)

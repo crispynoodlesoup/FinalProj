@@ -39,7 +39,7 @@ public class GameScreen implements Screen{
 
         Sprite sprite = assets.loadSprite("Snakey");
         sprite.setOrigin(0,0);
-        sprite.scale(3);
+        sprite.scale(1.2f);
 
         batch.begin();
             board.drawTiles(batch);
